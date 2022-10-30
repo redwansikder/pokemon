@@ -1,32 +1,9 @@
 import React from 'react'
 import './App.css'
 import pokemon from './pokemon.json'
+import { SinglePokemon } from './components/SinglePokemon'
+import { PokemonRow } from './components/PokemonRow'
 
-function PokemonRow({ pokemon, onSelect }) {
-  return (
-    <tr>
-      <td onClick={() => onSelect(pokemon)}>{pokemon.name.english}</td>
-    </tr>
-  )
-}
-
-function SinglePokemon({ name, base }) {
-  return (
-    <div className='SinglePokemon'>
-      <h1>Name: {name.english}</h1>
-      <table>
-        <tbody>
-          {Object.keys(base).map((key) => (
-            <tr key={key}>
-              <td>{key}</td>
-              <td>{base[key]}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-  )
-}
 function App() {
   const [search, setSearch] = React.useState('')
   const [selPoke, setSelPokemon] = React.useState(null)
@@ -43,7 +20,6 @@ function App() {
           <thead>
             <tr>
               <th>Name</th>
-              {/* <th>Type</th> */}
             </tr>
           </thead>
           <tbody>
